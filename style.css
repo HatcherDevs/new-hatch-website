@@ -825,3 +825,24 @@ body.open-card {
 |  CSS: Cards with Fullscreen zoom
 |------------------------------------------------------
 */
+
+
+
+.click_graphics {
+  animation: continuousMove 3s linear infinite;
+}
+
+@keyframes continuousMove {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+#play_button,#pause_button,body{
+  cursor: none;
+}

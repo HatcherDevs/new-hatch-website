@@ -596,9 +596,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //Video Play Pause Control Start
 let playButton = document.getElementById("play_button");
+let playBtnBlue = document.getElementById("playBtn");
 let pauseButton = document.getElementById("pause_button");
 playButton.addEventListener("click", function() {
   video.play();
+  playBtnBlue.innerText="stop";
   playButton.classList.add('vplay');
   pauseButton.classList.remove('vpause');
   document.querySelector('html').classList.add('playvideo');
@@ -606,6 +608,7 @@ playButton.addEventListener("click", function() {
 
 pauseButton.addEventListener("click", function() {
 	video.pause();
+  playBtnBlue.innerText="play";
 	 playButton.classList.remove('vplay');
   pauseButton.classList.add('vpause');
 });
@@ -628,6 +631,8 @@ soundOn.addEventListener("click", function() {
 video.onended = function() {
 		document.querySelector('html').classList.remove('playvideo');
 	 playButton.classList.remove('vplay');
+   playBtnBlue.innerText = "play";
+
 };
 
 
@@ -702,7 +707,7 @@ function showRandomNotification() {
 
   // تشغيل الرنة إذا لم تكن قد تم تشغيلها بالفعل
   if (!soundPlayed) {
-    notificationSound.play();
+    // notificationSound.play();
     soundPlayed = true;
 
     // إعادة تعيين الحالة بعد فترة زمنية (هنا 2 ثانية)

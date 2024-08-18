@@ -55,19 +55,19 @@
         </div>
     </div>
 
-    <span class="click_graphics at mouseMove_hover">
+    <span class="click_graphics at mouseMove_hover" data-speed="2">
         <img width="100%" src="imgs/click_graphics/at.png">
     </span>
-    <span class="click_graphics click mouseMove_hover">
+    <span class="click_graphics click mouseMove_hover" data-speed="4">
         <img width="100%" src="imgs/click_graphics/click.png">
     </span>
-    <span class="click_graphics text mouseMove_hover">
+    <span class="click_graphics text mouseMove_hover" data-speed="6">
         <img width="100%" src="imgs/click_graphics/text.png">
     </span>
-    <span class="click_graphics like mouseMove_hover">
+    <span class="click_graphics like mouseMove_hover" data-speed="8">
         <img width="100%" src="imgs/click_graphics/like.png">
     </span>
-    <span class="click_graphics hashtah mouseMove_hover">
+    <span class="click_graphics hashtah mouseMove_hover" data-speed="10">
         <img width="100%" src="imgs/click_graphics/hashtah.png">
     </span>
 
@@ -84,7 +84,7 @@
                     <a id="pause_button" class="pause-btn btnVideo"><i></i></a>
                 </div>
                 <video id="video" width="100%" poster="imgs/timeline-video.png">
-                    <source src="https://assets.codepen.io/6093409/river.mp4" data-wf-ignore="true">
+                    <source src="Hatch_Reel 2024_V2.mp4" data-wf-ignore="true">
                 </video>
                 <!--Volume Control Start-->
                 <div class="sound-ctrl">
@@ -159,7 +159,7 @@
 
     <div class="layout"></div>
     <div class="cursor" style="padding: 15px;">
-        <span class="d-none">Play</span>
+        <span id="playBtn" class="d-none">Play</span>
     </div>
     
     <script src="locomotive-scroll.js"></script>
