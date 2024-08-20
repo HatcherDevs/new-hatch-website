@@ -503,8 +503,16 @@ html,body{
 /* عرض 50% للشاشات الصغيرة */
 @media (max-width: 767.98px) {
   .w-sm-50 {
-    width: 50%;
+    width: 80%;
   }
+  #contact .contact_h2{
+    font-size: 4em;
+    font-weight: 900;
+  }
+  #contact .mailto{
+    font-size: 1.3em;
+  }
+  
 }
 
 
