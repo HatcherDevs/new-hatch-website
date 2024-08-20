@@ -555,7 +555,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  window.addEventListener('mousemove', editCursor);
+  document.addEventListener('mousemove', editCursor);
   const btnVideo = document.querySelector('.btnVideo');
 
   // const editCursorVideo = e => {
@@ -750,4 +750,4 @@ document.getElementById('dog').addEventListener('click', () => {
 // تحديث الإشعار بشكل دوري
 setInterval(() => {
   showRandomNotification();
-}, 50000);
+}, 20000);

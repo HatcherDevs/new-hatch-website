@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
 *{
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
     font-family: gilroy;
     cursor: none;
+    font-family: "Roboto", sans-serif;
 }
 html,body{
     height: 100%;
@@ -40,7 +43,7 @@ html,body{
 }
 
 canvas{
-  background-image: url(imgs/hatch_logo_black.png)!important;
+  background-image: url(../imgs/hatch_logo_black.png)!important;
   /* background: #333; */
   background-position: center 60%;
   background-repeat: no-repeat;
@@ -130,7 +133,7 @@ canvas{
         transform: translateX(-100%);
     }
 }
-#nav{
+#nav,#nav_about{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -198,6 +201,12 @@ canvas{
    overflow: hidden;
    width: fit-content;
  }
+ .nav_list_item{
+  filter: blur(3px);
+}
+.nav_list_item.active,.nav_list_item:hover{
+  filter: blur(0px)!important;
+}
  
 
  .nav_list li {
@@ -415,6 +424,7 @@ canvas{
   position: relative;
   opacity: 0;
   background-color: #ededed;
+
 }
 .swiper-button-next::after,
 .swiper-button-prev::after{
@@ -430,7 +440,7 @@ canvas{
 .swiper-button-next,
 .swiper-button-prev{
   color: #1D1D1D;
-  top: 95%;
+  top: 80%;
   width: 10%;
   display: flex;
   font-weight: 100;
@@ -506,7 +516,7 @@ video{
 }
 
 #dog span.dog-bubble {
-  background-image: url(imgs/dog-bubble.png);
+  background-image: url(../imgs/dog-bubble.png);
   background-size: 100% 100%;
   position: absolute;
   padding: 8px 20px;
@@ -827,9 +837,20 @@ body.open-card {
 */
 
 
-
 .click_graphics {
-  animation: continuousMove 3s linear infinite;
+  animation: continuousMove 6s infinite;
+}
+.click_graphics.at {
+  animation: continuousMove 5s ease infinite;
+}
+.click_graphics.click {
+  animation: continuousMove 5s linear infinite;
+}
+.click_graphics.like {
+  animation: continuousMove 6s linear infinite;
+}
+.click_graphics.text {
+  animation: continuousMove 7s  infinite;
 }
 
 @keyframes continuousMove {
@@ -837,12 +858,18 @@ body.open-card {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-40px);
   }
   100% {
     transform: translateY(0);
   }
 }
-#play_button,#pause_button,body{
+#play_button,#pause_button{
   cursor: none;
+}
+
+
+.custom-link-footer {
+  color: black;
+  text-decoration: none;
 }

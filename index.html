@@ -6,19 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hatch</title>
-    <link rel="stylesheet" href="locomotive-scroll.css">
-    <link rel="stylesheet" href="swiper-bundle.min.css" />
-    <link rel="stylesheet" href="slider3D.css">
+    <link rel="stylesheet" href="css/locomotive-scroll.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/slider3D.css">
     <script src="https://kit.fontawesome.com/7b5e9f3ec6.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <div id="dog">
-        <img id="dogImage" src="imgs/dog.png">
-        <span class="dog-bubble" id="notification">I’m here to <br> brighten your day</span>
-        <audio id="notificationSound" src="imgs/mixkit-happy-puppy-barks-741.mp3"></audio>
-    </div>
+    
 
     <div id="nav">
         <a href="#menu"><img src="imgs/side_menu.png" width="66%"></a>
@@ -35,16 +31,16 @@
                 <ul class="nav_list">
 
                     <div class="nav_list_item">
-                        <li><a href="#">About</a></li>
-                    </div>
-                    <div class="nav_list_item active">
-                        <li><a href="#">Projects</a></li>
+                        <li><a href="about.html">About</a></li>
                     </div>
                     <div class="nav_list_item">
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="projects.html">Projects</a></li>
                     </div>
                     <div class="nav_list_item">
-                        <li><a href="#">Store</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </div>
+                    <div class="nav_list_item">
+                        <li><a href="store.html">Store</a></li>
                     </div>
 
                 </ul>
@@ -96,7 +92,7 @@
             </div>
         </div>
         <div id="page3">
-            <div class="swiper-container">
+            <div class="swiper-container" >
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <a href="#" class="slide-inner">
@@ -149,25 +145,52 @@
                     <i class="fa fa-arrow-left"></i>
                     Previous Project
                 </div>
-            </div>
-            
-            
-     
+            </div>     
         </div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap-grid.min.css">
+
+        <div id="page4">
+            <div style="padding-bottom: 20px;">
+                <footer class="container py-3">
+                    <div class="row">
+                      <div class="col-md-6 pt-3">
+                        <a href="" class="custom-link-footer">All copyrights reserved @Hatch Design Services L.L.C. 2024</a>
+                      </div>
+                      <div class="col-md-3 pt-3">
+                        <a href="" class="custom-link-footer">Privacy Policy</a>
+                      </div>
+                      <div class="col-md-3 pt-3">
+                        <a href="" class="custom-link-footer">Terms & Conditions</a>
+                      </div>
+                    </div>
+                  </footer>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    
+
+    <div id="dog">
+        <img id="dogImage" src="imgs/dog.png">
+        <span class="dog-bubble" id="notification">I’m here to <br> brighten your day</span>
+        <audio id="notificationSound" src="imgs/mixkit-happy-puppy-barks-741.mp3"></audio>
     </div>
 
 
     <div class="layout"></div>
     <div class="cursor" style="padding: 15px;">
-        <span id="playBtn" class="d-none">Play</span>
+        <span id="playBtn" style="display: none;">Play</span>
     </div>
     
-    <script src="locomotive-scroll.js"></script>
-    <script src="gsap.min.js"></script>
-    <script src="ScrollTrigger.min.js"></script>
-    <script src="swiper-bundle.min.js"></script>
+    <script src="js/locomotive-scroll.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
