@@ -688,15 +688,16 @@ var swiper = new Swiper('.swiper-container', {
 
 // Array of random notifications
 const notifications = [
-  "I’m here to brighten your day",
-  "New message!",
-  "You have a notification.",
-  "Welcome to the website!",
+  "“Woof, woof” That’s Welcome in dog.",
+  "Did you know? Hatch is a homegrown Dubai studio.",
+  "We dig into design & get our hands dirty.",
+  "Our team can speak more than 5 languages."
   // Add more notifications as needed
 ];
 
 let soundPlayed = false;
 let imageShown = false;
+
 
 function showRandomNotification() {
   const randomIndex = Math.floor(Math.random() * notifications.length);
@@ -704,6 +705,7 @@ function showRandomNotification() {
   document.getElementById('notification').innerText = randomNotification;
 
   const notificationSound = document.getElementById('notificationSound');
+
 
   // تشغيل الرنة إذا لم تكن قد تم تشغيلها بالفعل
   if (!soundPlayed) {
@@ -733,21 +735,32 @@ function showRandomNotification() {
   };
 }
 
+
 function shakeDog() {
   const dogImage = document.getElementById('dogImage');
-  dogImage.style.animation = 'shake 0.5s';
+  // dogImage.style.animation = 'shake 0.5s';
   setTimeout(() => {
     dogImage.style.animation = '';
   }, 500);
 }
+function popUp() {
+  const notification = document.getElementById('notification');
+  notification.style.scale=0;
+
+  setTimeout(() => {
+    notification.style.scale=1;
+  }, 500);
+}
+
 
 // استمع لحدث النقر لتحديث الإشعار والاهتزاز
 document.getElementById('dog').addEventListener('click', () => {
+  popUp();
   showRandomNotification();
 });
 
 
 // تحديث الإشعار بشكل دوري
-setInterval(() => {
-  showRandomNotification();
-}, 20000);
+// setInterval(() => {
+//   showRandomNotification();
+// }, 20000);

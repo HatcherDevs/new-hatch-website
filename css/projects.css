@@ -20,6 +20,9 @@
 .nav-pills .nav-link.active #arrow{
     display: inline;
 }
+ul#projects-tab li {
+  padding-right: 30px;
+}
 
 #projects-tab{
     position: absolute;
