@@ -1,14 +1,10 @@
-# Force HTTPS
+# Force HTTPS - Shared Hosting Compatible
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    # Check for HTTPS via X-Forwarded-Proto (for shared hosting with proxy)
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
     RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-</IfModule>
-
-# Remove www from URL (optional - remove if you want to keep www)
-<IfModule mod_rewrite.c>
-    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 </IfModule>
 
 # Enable Gzip Compression
