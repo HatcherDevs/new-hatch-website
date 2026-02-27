@@ -1,0 +1,112 @@
+# Force HTTPS
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Remove www from URL (optional - remove if you want to keep www)
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+</IfModule>
+
+# Enable Gzip Compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/xml+rss
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE font/truetype
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Browser Cache Control - Set expires for different file types
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Images - 1 year
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/x-windows-icon "access plus 1 year"
+    
+    # CSS & JavaScript - 30 days
+    ExpiresByType text/css "access plus 30 days"
+    ExpiresByType application/javascript "access plus 30 days"
+    ExpiresByType text/javascript "access plus 30 days"
+    
+    # Fonts - 1 year
+    ExpiresByType font/truetype "access plus 1 year"
+    ExpiresByType font/opentype "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+    
+    # HTML - No caching (always check for updates)
+    ExpiresByType text/html "access plus 0 seconds"
+    
+    # Default
+    ExpiresDefault "access plus 2 days"
+</IfModule>
+
+# Cache Control Headers
+<IfModule mod_headers.c>
+    # Images
+    <FilesMatch "\.(jpg|jpeg|gif|png|webp|svg|ico)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    
+    # CSS & JavaScript
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=2592000, must-revalidate"
+    </FilesMatch>
+    
+    # Fonts
+    <FilesMatch "\.(woff|woff2|ttf|otf|eot)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    
+    # HTML files
+    <FilesMatch "\.html?$">
+        Header set Cache-Control "public, max-age=0, must-revalidate"
+    </FilesMatch>
+    
+    # Disable caching for dynamic content
+    Header set Cache-Control "no-cache, no-store, must-revalidate" env=no-cache
+    
+    # Remove ETags for better performance
+    Header unset ETag
+    FileETag None
+    
+    # Add security headers
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Remove .html extension from URLs
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^([^\.]+)$ $1.html [NC,L]
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
+
+# Enable Keep-Alive
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>
